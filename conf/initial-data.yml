@@ -1,0 +1,35 @@
+User(bob):
+    eMail: bob@gmail.com
+    displayName: Bob
+
+User(john):
+    eMail: john@gmail.com
+    displayName: John
+
+User(jane):
+    eMail: jane@gmail.com
+    displayName: Jane
+
+Posting(apples):
+    creator: bob
+    category: FOR_OFFER
+    subject: Free Apples
+    description:
+    creationDate: 26/10/2011
+    token: fq2occqjgujogpnovoa3slg0kf
+
+Posting(oranges):
+    creator: jane
+    category: WANTED
+    subject: Need Oranges
+    description:
+    creationDate: 26/10/2011
+    token: 3lj3nhjpbij748jtsvhjql505b
+
+Posting(partner):
+    creator: john
+    category: WANTED
+    subject: Looking For Running Partner
+    description:
+    creationDate: 26/10/2011
+    token: 3lxxnhjpbij748jtsvhjql505b

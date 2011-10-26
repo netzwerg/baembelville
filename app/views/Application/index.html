@@ -1,4 +1,22 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+#{if postings.size() > 1}
+<div class="postings">
+    <h3>Postings</h3>
+
+    #{list items:postings, as:'posting'}
+    <ul>
+        <div class="posting">
+            <li>${posting.creator.displayName} | ${posting.subject}</li>
+        </div>
+    </ul>
+    #{/list}
+</div>
+
+#{/if}
+#{else}
+    <div class="empty">
+        Nada.
+    </div>
+#{/else}
