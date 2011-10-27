@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title:'Aktivierung' /}
+#{if posting != null}
+<h1>Ihr Inserat "${posting.subject}" wurde erfolgreich aktiviert!</h1>
+#{/if}
+#{else}
+<h1>Oops, der Link zu diesem Inserat war ungültig.</h1>
+#{/else}
+<a href="@{Application.index()}">Zur Übersicht</a>

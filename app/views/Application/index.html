@@ -27,7 +27,7 @@
         #{list items:postings, as:'posting'}
         <ul>
             <div class="posting">
-                <li>${posting.creator.displayName} | ${posting.subject}</li>
+                <li>${ posting.activated.yesno('Active', 'Inactive') } &mdash; ${posting.subject} </li>
             </div>
         </ul>
         #{/list}

@@ -19,9 +19,25 @@ public class Application extends Controller {
     }
 
 	public static void createPosting(String eMail, String displayName, String subject, String description) {
+		// TODO: Re-use existing users
 		User user = new User(eMail, displayName).save();
-		new Posting(user, Category.FOR_OFFER, subject, description).save();
-		render();
+		Posting posting = new Posting(user, Category.FOR_OFFER, subject, description);
+		// TODO: Prevent duplicate tokens (theoretically impossible, but who knows)
+		posting.save();
+		render(posting);
+	}
+
+	public static void activate(String token) {
+		List<Object> postings = Posting.find("byToken", token).fetch();
+		if (postings.size() == 1) {
+			Posting posting = (Posting) postings.get(0);
+			posting.activated = true;
+			posting.save();
+			render(posting);
+		} else {
+			// TODO: Handle duplicates
+			render();
+		}
 	}
 
 	public static String createSecureRandomToken() {

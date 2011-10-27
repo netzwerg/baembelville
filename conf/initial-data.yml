@@ -16,6 +16,7 @@ Posting(apples):
     subject: Free Apples
     description:
     creationDate: 26/10/2011
+    activated: true
     token: fq2occqjgujogpnovoa3slg0kf
 
 Posting(oranges):
@@ -24,6 +25,7 @@ Posting(oranges):
     subject: Need Oranges
     description:
     creationDate: 26/10/2011
+    activated: false
     token: 3lj3nhjpbij748jtsvhjql505b
 
 Posting(partner):
@@ -32,4 +34,5 @@ Posting(partner):
     subject: Looking For Running Partner
     description:
     creationDate: 26/10/2011
+    activated: true
     token: 3lxxnhjpbij748jtsvhjql505b

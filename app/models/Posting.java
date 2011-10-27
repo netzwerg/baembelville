@@ -21,6 +21,7 @@ public class Posting extends Model {
 	public String description;
 	public Date creationDate;
 	public String token;
+	public boolean activated;
 
 	public Posting(User creator, Category category, String subject, String description) {
 		this.creator = creator;
@@ -29,6 +30,7 @@ public class Posting extends Model {
 		this.description = description;
 		this.token = Application.createSecureRandomToken();
 		this.creationDate = new Date();
+		this.activated = false;
 	}
 
 }

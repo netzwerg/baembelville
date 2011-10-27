@@ -1,6 +1,6 @@
 #{extends 'main.html' /}
-#{set title:'Danke' /}
+#{set title:'Bestätigung' /}
 
-<h1>Danke!</h1>
-
-<a href="@{Application.index()}">Zurück</a>
+<h1>Ihr Inserat wurde erfolgreich erfasst.</h1>
+<!-- TODO: Remove once email activation is in place -->
+<a href="@{Application.activate(posting.token)}">Aktivieren</a> | <a href="@{Application.index()}">Zur Übersicht</a>
