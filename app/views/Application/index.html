@@ -1,22 +1,40 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{if postings.size() > 1}
-<div class="postings">
-    <h3>Postings</h3>
-
-    #{list items:postings, as:'posting'}
-    <ul>
-        <div class="posting">
-            <li>${posting.creator.displayName} | ${posting.subject}</li>
-        </div>
-    </ul>
-    #{/list}
+<h3>Inserat Erfassen:</h3>
+#{form @Application.createPosting()}
+<div>
+    Email: <input type="email" name="eMail"/>
 </div>
+<div>
+    Name: <input type="text" name="displayName"/>
+</div>
+<div>
+    Titel: <input type="text" name="subject"/>
+</div>
+<div>
+    Beschreibung: <input type="text" name="description"/>
+</div>
+<div>
+    <input type="submit" value="INSERAT ABSCHICKEN"/>
+</div>
+#{/form}
 
-#{/if}
-#{else}
-    <div class="empty">
-        Nada.
-    </div>
-#{/else}
+<div class="postings">
+    <h3>Aktuelle Inserate:</h3>
+
+    #{if postings.size() > 1}
+        #{list items:postings, as:'posting'}
+        <ul>
+            <div class="posting">
+                <li>${posting.creator.displayName} | ${posting.subject}</li>
+            </div>
+        </ul>
+        #{/list}
+    #{/if}
+    #{else}
+        <div class="empty">
+            Keine.
+        </div>
+    #{/else}
+</div>

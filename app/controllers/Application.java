@@ -1,6 +1,8 @@
 package controllers;
 
+import models.Category;
 import models.Posting;
+import models.User;
 import play.mvc.Controller;
 
 import java.math.BigInteger;
@@ -15,6 +17,12 @@ public class Application extends Controller {
 		List<Posting> postings = Posting.find("order by creationDate desc").fetch();
         render(postings);
     }
+
+	public static void createPosting(String eMail, String displayName, String subject, String description) {
+		User user = new User(eMail, displayName).save();
+		new Posting(user, Category.FOR_OFFER, subject, description).save();
+		render();
+	}
 
 	public static String createSecureRandomToken() {
 		return new BigInteger(130, random).toString(32);
