@@ -8,10 +8,9 @@ import play.mvc.Controller;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.List;
+import java.util.UUID;
 
 public class Application extends Controller {
-
-	private static final SecureRandom random = new SecureRandom();
 
     public static void index() {
 		List<Posting> postings = Posting.find("order by creationDate desc").fetch();
@@ -28,7 +27,7 @@ public class Application extends Controller {
 	}
 
 	public static void activate(String token) {
-		List<Object> postings = Posting.find("byToken", token).fetch();
+		List<Object> postings = Posting.find("byToken", UUID.fromString(token)).fetch();
 		if (postings.size() == 1) {
 			Posting posting = (Posting) postings.get(0);
 			posting.activated = true;
@@ -38,10 +37,6 @@ public class Application extends Controller {
 			// TODO: Handle duplicates
 			render();
 		}
-	}
-
-	public static String createSecureRandomToken() {
-		return new BigInteger(130, random).toString(32);
 	}
 
 }

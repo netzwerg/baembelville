@@ -4,6 +4,7 @@ import controllers.Application;
 import play.db.jpa.Model;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,7 +21,7 @@ public class Posting extends Model {
 	public String subject;
 	public String description;
 	public Date creationDate;
-	public String token;
+	public UUID token;
 	public boolean activated;
 
 	public Posting(User creator, Category category, String subject, String description) {
@@ -28,7 +29,7 @@ public class Posting extends Model {
 		this.category = category;
 		this.subject = subject;
 		this.description = description;
-		this.token = Application.createSecureRandomToken();
+		this.token = UUID.randomUUID();
 		this.creationDate = new Date();
 		this.activated = false;
 	}

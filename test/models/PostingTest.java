@@ -6,6 +6,8 @@ import play.test.UnitTest;
 
 import org.junit.Test;
 
+import java.util.UUID;
+
 public class PostingTest extends UnitTest {
 
 	@Before
@@ -26,7 +28,7 @@ public class PostingTest extends UnitTest {
 	@Test
 	public void tokenHandling() {
 		Posting newPosting = createPosting(createSavedUser());
-		String token = newPosting.token;
+		UUID token = newPosting.token;
 		assertNotNull(token);
 
 		newPosting.save();
