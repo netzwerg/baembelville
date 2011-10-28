@@ -11,7 +11,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library">
       <library name="Project Libraries">
-        <CLASSES />
+        <CLASSES>
+          <root url="jar://$PLAY_HOME$/framework/play.jar!/" />
+        </CLASSES>
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
@@ -20,22 +22,11 @@
     <orderEntry type="module-library">
       <library name="PlayFramework Dependencies">
         <CLASSES>
-          <root url="file://$USER_HOME$/Documents/netzwerg/play-1.2.3/framework/lib" />
+          <root url="file://$PLAY_HOME$/framework/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Documents/netzwerg/play-1.2.3/framework/lib" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/netzwerg/play-1.2.3/framework/play-1.2.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/Documents/netzwerg/play-1.2.3/framework/src" />
-        </SOURCES>
+        <jarDirectory url="file://$PLAY_HOME$/framework/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>
