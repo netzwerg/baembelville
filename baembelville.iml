@@ -8,11 +8,10 @@
     </content>
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library">
       <library name="Project Libraries">
         <CLASSES>
-          <root url="jar://$PLAY_HOME$/framework/play.jar!/" />
+          <root url="jar://$PLAY_HOME$/framework/play-1.2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
