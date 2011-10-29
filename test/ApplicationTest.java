@@ -38,6 +38,15 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
+    public void testCreatePostingReuseUser() {
+        assertEquals(0, User.count());
+        createPosting();
+        assertEquals(1, User.count());
+        createPosting();
+        assertEquals(1, User.count());
+    }
+
+    @Test
     public void testActivate() {
         assertIsOk(createPosting());
         List<JPABase> postings = Posting.findAll();

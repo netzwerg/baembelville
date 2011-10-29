@@ -3,10 +3,9 @@ package controllers;
 import models.Category;
 import models.Posting;
 import models.User;
+import play.Logger;
 import play.mvc.Controller;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,15 +17,27 @@ public class Application extends Controller {
     }
 
 	public static void createPosting(String eMail, String displayName, String subject, String description) {
-		// TODO: Re-use existing users
-		User user = new User(eMail, displayName).save();
+        User user = getOrCreateUser(eMail, displayName);
+        // TODO: Wire category as param
 		Posting posting = new Posting(user, Category.FOR_OFFER, subject, description);
-		// TODO: Prevent duplicate tokens (theoretically impossible, but who knows)
 		posting.save();
 		render(posting);
 	}
 
-	public static void activate(String token) {
+    private static User getOrCreateUser(String eMail, String displayName) {
+        List<Object> existingUsers = User.find("byEMailAndDisplayName", eMail, displayName).fetch();
+        if (existingUsers.size() > 0) {
+            Logger.debug("Reusing exiting user (eMail [%s], displayName [%s])", eMail, displayName);
+            if (existingUsers.size() > 1) {
+                Logger.debug("Found %s entries for user (eMail [%s], displayName [%s])", existingUsers.size(), eMail, displayName);
+            }
+            return (User) existingUsers.get(0);
+        } else {
+            return new User(eMail, displayName).save();
+        }
+    }
+
+    public static void activate(String token) {
 		List<Object> postings = Posting.find("byToken", UUID.fromString(token)).fetch();
 		if (postings.size() == 1) {
 			Posting posting = (Posting) postings.get(0);
