@@ -1,0 +1,21 @@
+#mask {
+    position: absolute;
+    z-index: 9000;
+    background-color: white;
+    display: none;
+}
+
+#boxes .window {
+    position: absolute;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+}
+
+#boxes #dialog {
+    width: 375px;
+    height: 203px;
+    background-color: #a9a9a9;
+}
