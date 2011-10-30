@@ -1,0 +1,11 @@
+<html>
+<body>
+    <p>Guten Tag ${posting.creator.displayName}</p>
+    <p>Ihr Inserat <b>${posting.subject}</b> wurde auf Bämbelville erfasst &mdash; herzlichen Dank.</p>
+    <p>Um das Inserat zu aktivieren, clicken Sie bitte <a href="@{Application.activatePosting(posting.token)}">hier</a>.<br/>
+    <p>Um das Inserat zu löschen, clicken Sie bitte <a href="@{Application.deletePosting(posting.token)}">hier</a>
+        (alle Inserate werden nach 30 Tagen automatisch gelöscht)</p>
+    <p>Mit freundlichen Grüssen<br/>
+    Ihr Bämbelville Team</p>
+</body>
+</html>

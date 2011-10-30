@@ -3,6 +3,7 @@ package controllers;
 import models.Category;
 import models.Posting;
 import models.User;
+import notifiers.Mails;
 import play.Logger;
 import play.mvc.Controller;
 
@@ -21,7 +22,8 @@ public class Application extends Controller {
         // TODO: Wire category as param
 		Posting posting = new Posting(user, Category.FOR_OFFER, subject, description);
 		posting.save();
-		render(posting);
+        Mails.verifyPosting(posting);
+        render(posting);
 	}
 
     private static User getOrCreateUser(String eMail, String displayName) {
@@ -37,7 +39,11 @@ public class Application extends Controller {
         }
     }
 
-    public static void activate(String token) {
+    public static void deletePosting(String token) {
+        // TODO: Implement
+    }
+
+    public static void activatePosting(String token) {
 		List<Object> postings = Posting.find("byToken", UUID.fromString(token)).fetch();
 		if (postings.size() == 1) {
 			Posting posting = (Posting) postings.get(0);

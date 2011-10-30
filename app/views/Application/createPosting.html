@@ -2,5 +2,6 @@
 #{set title:'Bestätigung' /}
 
 <h1>Ihr Inserat wurde erfolgreich erfasst.</h1>
-<!-- TODO: Remove once email activation is in place -->
-<a href="@{Application.activate(posting.token)}">Aktivieren</a> | <a href="@{Application.index()}">Zur Übersicht</a>
+<p>Damit es auf Bämbelville erscheint, müssen Sie es zuerst aktivieren. Folgen Sie dazu
+    der Anleitung, die wir Ihnen als EMail geschickt haben.
+<a href="@{Application.index()}">Zur Übersicht</a>
