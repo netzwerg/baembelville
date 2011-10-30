@@ -1,14 +1,13 @@
-import controllers.Application;
 import models.Posting;
 import models.User;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 import play.db.jpa.JPABase;
-import play.mvc.Http;
-import play.test.*;
-import play.mvc.Http.*;
+import play.mvc.Http.Request;
+import play.mvc.Http.Response;
+import play.test.Fixtures;
+import play.test.FunctionalTest;
 
-import java.io.File;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +46,7 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
-    public void testActivate() {
+    public void testActivatePosting() {
         assertIsOk(createPosting());
         List<JPABase> postings = Posting.findAll();
         assertEquals(1, postings.size());
@@ -55,7 +54,7 @@ public class ApplicationTest extends FunctionalTest {
         assertFalse(posting.activated);
         Request request = newRequest();
         request.params.put("token", String.valueOf(posting.token));
-        Response response = GET(request, "/application/activate");
+        Response response = GET(request, "/application/activateposting");
         assertIsOk(response);
         posting.refresh();
         assertTrue(posting.activated);

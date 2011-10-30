@@ -12,15 +12,23 @@ import java.util.UUID;
 
 public class Application extends Controller {
 
-    public static void index() {
-		List<Posting> postings = Posting.find("order by creationDate desc").fetch();
+    public static void listOffered() {
+        renderPostingsByCategory(Category.OFFERED);
+    }
+
+    public static void listWanted() {
+		renderPostingsByCategory(Category.WANTED);
+    }
+
+    private static void renderPostingsByCategory(Category category) {
+        List<Posting> postings = Posting.find("category = ? order by creationDate", category).fetch();
         render(postings);
     }
 
 	public static void createPosting(String eMail, String displayName, String subject, String description) {
         User user = getOrCreateUser(eMail, displayName);
         // TODO: Wire category as param
-		Posting posting = new Posting(user, Category.FOR_OFFER, subject, description);
+		Posting posting = new Posting(user, Category.OFFERED, subject, description);
 		posting.save();
         Mails.verifyPosting(posting);
         render(posting);

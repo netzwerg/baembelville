@@ -12,7 +12,7 @@ User(jane):
 
 Posting(apples):
     creator: bob
-    category: FOR_OFFER
+    category: OFFERED
     subject: Free Apples
     description:
     creationDate: 26/10/2011

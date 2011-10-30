@@ -22,7 +22,7 @@ public class PostingTest extends UnitTest {
 		Posting posting = Posting.find("byCreator", user).first();
 		assertNotNull(posting);
 		assertEquals(user, posting.creator);
-		assertEquals(Category.FOR_OFFER, posting.category);
+		assertEquals(Category.OFFERED, posting.category);
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class PostingTest extends UnitTest {
 	}
 
 	private static Posting createPosting(User user) {
-		return new Posting(user, Category.FOR_OFFER, "subject", "description");
+		return new Posting(user, Category.OFFERED, "subject", "description");
 	}
 
 	private static User createSavedUser() {

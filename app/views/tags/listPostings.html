@@ -1,0 +1,18 @@
+<div class="postings">
+    <a href="@{Application.listWanted()}" class="tab">GESUCHT</a>
+    <a href="@{Application.listOffered()}" class="tab">GEBOTEN</a>
+#{if _postings?.size() > 0}
+    #{list items:_postings, as:'posting'}
+        <ul>
+            <div class="posting">
+                <li>${ posting.activated.yesno('Active', 'Inactive') } &mdash; ${posting.subject} </li>
+            </div>
+        </ul>
+    #{/list}
+#{/if}
+#{else}
+    <div class="empty">
+        Keine.
+    </div>
+#{/else}
+</div>
