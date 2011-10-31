@@ -18,4 +18,13 @@
     width: 375px;
     height: 203px;
     background-color: #a9a9a9;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 6px 6px 6px #666;
+    -webkit-box-shadow: 6px 6px 6px #666;
+    box-shadow: 6px 6px 6px #666;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666');
 }
