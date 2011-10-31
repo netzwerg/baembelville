@@ -1,6 +1,8 @@
 <div class="postings">
-    <a href="@{Application.listWanted()}" class="tab">GESUCHT</a>
-    <a href="@{Application.listOffered()}" class="tab">GEBOTEN</a>
+    <ul id="tabnav">
+        <li class="${models.Category.WANTED}"><a href="@{Application.listWanted()}" class="tab">GESUCHT</a></li>
+        <li class="${models.Category.OFFERED}"><a href="@{Application.listOffered()}" class="tab">GEBOTEN</a></li>
+    </ul>
 #{if _postings?.size() > 0}
     #{list items:_postings, as:'posting'}
         <ul>
