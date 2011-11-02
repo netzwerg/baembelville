@@ -19,6 +19,24 @@ Posting(apples):
     activated: true
     token: fq2occqjgujogpnovoa3slg0kf
 
+Posting(beer):
+    creator: bob
+    category: OFFERED
+    subject: Free Beer
+    description:
+    creationDate: 01/11/2011
+    activated: true
+    token: fq2occqjgujxgpnovoa3slg0kf
+
+Posting(coffee):
+    creator: jane
+    category: OFFERED
+    subject: Free Coffee
+    description:
+    creationDate: 03/11/2011
+    activated: true
+    token: fq2occqjyujxgpnovoa3slg0kf
+
 Posting(oranges):
     creator: jane
     category: WANTED

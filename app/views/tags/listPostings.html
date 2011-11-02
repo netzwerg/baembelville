@@ -4,13 +4,20 @@
         <li class="${models.Category.OFFERED}"><a href="@{Application.listOffered()}" class="tab">GEBOTEN</a></li>
     </ul>
 #{if _postings?.size() > 0}
-    #{list items:_postings, as:'posting'}
-        <ul>
-            <div class="posting">
-                <li>${ posting.activated.yesno('Active', 'Inactive') } &mdash; ${posting.subject} </li>
-            </div>
-        </ul>
+    <table>
+    #{list items:_postings, as:'p'}
+        <tr name="modal" href="#details">
+            <td>${p.subject}</td>
+            <td>&mdash; ${p.creator.displayName}
+        </tr>
     #{/list}
+    #{postingItemDetails p /}
+    <script type="text/javascript" charset="${_response_encoding}">
+        $('tr').hover(function () {
+            $(this).toggleClass('hovered');
+        });
+    </script>
+    </table>
 #{/if}
 #{else}
     <div class="empty">

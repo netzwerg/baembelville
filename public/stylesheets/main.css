@@ -1,3 +1,8 @@
+tr.hovered {
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
 /*********************
  MODAL POP-UP DIALOG
 **********************/
@@ -18,7 +23,7 @@
     padding: 20px;
 }
 
-#boxes #dialog {
+#boxes div[id='form'], div[id='details'] {
     width: 375px;
     height: 203px;
     background-color: #a9a9a9;
