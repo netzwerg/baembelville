@@ -6,17 +6,17 @@
 #{if _postings?.size() > 0}
     <table>
     #{list items:_postings, as:'p'}
+        <colgroup>
+            <col class="creator" />
+            <col class="subject" />
+        </colgroup>
+
         <tr name="modal" href="#details">
+            <td>${p.creator.displayName}</td>
             <td>${p.subject}</td>
-            <td>&mdash; ${p.creator.displayName}
         </tr>
     #{/list}
     #{postingItemDetails p /}
-    <script type="text/javascript" charset="${_response_encoding}">
-        $('tr').hover(function () {
-            $(this).toggleClass('hovered');
-        });
-    </script>
     </table>
 #{/if}
 #{else}

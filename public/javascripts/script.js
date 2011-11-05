@@ -30,11 +30,14 @@ $(document).ready(function() {
 
     });
 
-    // if close button is clicked
     $('.window .close').click(function(e) {
         //Cancel the link behavior
         e.preventDefault();
         $('#mask, .window').hide();
+    });
+
+    $('tr').hover(function () {
+        $(this).toggleClass('hovered');
     });
 
 });

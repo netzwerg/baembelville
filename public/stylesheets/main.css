@@ -1,12 +1,51 @@
-tr.hovered {
-    background-color: #d3d3d3;
-    cursor: pointer;
+/*****************************************************/
+/* Main
+/*****************************************************/
+
+html, body, h1, h2, h3, h4, ul, li {
+    margin: 0 auto;
+    padding: 0;
+    font:  12px Helvetica, Arial, sans-serif;
 }
 
-/*********************
- MODAL POP-UP DIALOG
-**********************/
+body {
+    min-width: 800px;
+    width: 800px;
+    display: block;
+}
 
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-spacing: 0px;
+    cursor: pointer;
+    border-top: solid 1px #ccc;
+}
+
+col.creator {
+    width: 20%;
+}
+
+col.subject {
+    width: 80%;
+}
+
+tr {
+    background-color: #eee;
+}
+
+tr.hovered {
+    background-color: lightgray;
+}
+
+td {
+    padding: 10px;
+    border-bottom: solid 1px #ccc;
+}
+
+/*****************************************************/
+/* Modal Pop-Up
+/*****************************************************/
 #mask {
     position: absolute;
     z-index: 9000;
@@ -38,9 +77,9 @@ tr.hovered {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666');
 }
 
-/*********************
- BUTTONS
-**********************/
+/*****************************************************/
+/* Google-Style Buttons
+/*****************************************************/
 
 .buttons {
     float: left;
@@ -49,7 +88,7 @@ tr.hovered {
 }
 *.button {
     color: #6e6e6e;
-    font: bold 12px Helvetica, Arial, sans-serif;
+    font-weight: bold;
     text-decoration: none;
     padding: 7px 12px;
     position: relative;
@@ -123,6 +162,8 @@ a.supersize {
 a.add {
     background: url(/public/images/sprite.png)  10px -27px no-repeat #f3f3f3;
     padding-left: 30px;
+    margin-top: 30px;
+    width: 756px;
 }
 a.delete {
     background: url(/public/images/sprite.png)  10px -61px no-repeat #f3f3f3;
@@ -173,15 +214,15 @@ a.down-big {
     padding: 10px 15px;
 }
 
-/*********************
- TABS
-**********************/
+/*****************************************************/
+/* Tabs
+/*****************************************************/
 
 ul#tabnav { /* general settings */
     text-align: left; /* set to left, right or center */
     margin: 1em 0 1em 0; /* set margins as desired */
     font: bold 11px verdana, arial, sans-serif; /* set font as desired */
-    border-bottom: 1px solid #6c6; /* set border COLOR as desired */
+    border-bottom: 1px solid #ccc; /* set border COLOR as desired */
     list-style-type: none;
     padding: 3px 10px 3px 10px; /* THIRD number must change with respect to padding-top (X) below */
 }
@@ -205,9 +246,9 @@ body#WANTED li.WANTED a, body#OFFERED li.OFFERED a, body#tab3 li.tab3 a, body#ta
 
 ul#tabnav li a { /* settings for all tab links */
     padding: 3px 4px; /* set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
-    border: 1px solid #6c6; /* set border COLOR as desired; usually matches border color specified in #tabnav */
-    background-color: #cfc; /* set unselected tab background color as desired */
-    color: #666; /* set unselected tab link color as desired */
+    border: 1px solid #ccc; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+    background-color: #fff; /* set unselected tab background color as desired */
+    color: #000; /* set unselected tab link color as desired */
     margin-right: 0px; /* set additional spacing between tabs as desired */
     text-decoration: none;
     border-bottom: none;
