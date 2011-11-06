@@ -33,7 +33,7 @@ public class ApplicationTest extends FunctionalTest {
         assertIsOk(response);
         List<JPABase> postings = Posting.findAll();
         assertEquals(1, postings.size());
-        assertNotNull(((Posting) postings.get(0)).token);
+        assertNotNull(((Posting) postings.get(0)).id);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class ApplicationTest extends FunctionalTest {
         Posting posting = (Posting) postings.get(0);
         assertFalse(posting.activated);
         Request request = newRequest();
-        request.params.put("token", String.valueOf(posting.token));
+        request.params.put("id", posting.id);
         Response response = GET(request, "/application/activateposting");
         assertIsOk(response);
         posting.refresh();

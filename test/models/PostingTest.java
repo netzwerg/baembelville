@@ -1,12 +1,9 @@
 package models;
 
+import org.junit.Test;
 import play.mvc.Before;
 import play.test.Fixtures;
 import play.test.UnitTest;
-
-import org.junit.Test;
-
-import java.util.UUID;
 
 public class PostingTest extends UnitTest {
 
@@ -26,15 +23,14 @@ public class PostingTest extends UnitTest {
 	}
 
 	@Test
-	public void tokenHandling() {
+	public void idHandling() {
 		Posting newPosting = createPosting(createSavedUser());
-		UUID token = newPosting.token;
-		assertNotNull(token);
-
 		newPosting.save();
-		Posting foundPosting = Posting.find("byToken", token).first();
+		String id = newPosting.id;
+		assertNotNull(id);
+		Posting foundPosting = Posting.find("byId", id).first();
 		assertNotNull(foundPosting);
-		assertEquals(token, foundPosting.token);
+		assertEquals(id, foundPosting.id);
 	}
 
 	private static Posting createPosting(User user) {

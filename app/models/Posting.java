@@ -1,37 +1,40 @@
 package models;
 
-import controllers.Application;
-import play.db.jpa.Model;
+import org.hibernate.annotations.GenericGenerator;
+import play.db.jpa.GenericModel;
 
+import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
-
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Posting extends Model {
+public class Posting extends GenericModel {
 
-	@ManyToOne
-	public User creator;
-	@Enumerated(EnumType.STRING)
-	public Category category;
-	public String subject;
-	public String description;
-	public Date creationDate;
-	public UUID token;
-	public boolean activated;
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    public String id;
 
-	public Posting(User creator, Category category, String subject, String description) {
-		this.creator = creator;
-		this.category = category;
-		this.subject = subject;
-		this.description = description;
-		this.token = UUID.randomUUID();
-		this.creationDate = new Date();
-		this.activated = false;
-	}
+    @ManyToOne
+    public User creator;
+
+    @Enumerated(EnumType.STRING)
+    public Category category;
+
+    public String subject;
+
+    public String description;
+
+    @Temporal(TemporalType.DATE)
+    public Date creationDate = new Date();
+
+    public boolean activated;
+
+    public Posting(User creator, Category category, String subject, String description) {
+        this.creator = creator;
+        this.category = category;
+        this.subject = subject;
+        this.description = description;
+        this.activated = false;
+    }
 
 }

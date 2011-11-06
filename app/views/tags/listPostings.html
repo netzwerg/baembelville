@@ -9,11 +9,13 @@
         <colgroup>
             <col class="creator" />
             <col class="subject" />
+            <col class="date" />
         </colgroup>
 
         <tr name="modal" href="#details">
             <td>${p.creator.displayName}</td>
             <td>${p.subject}</td>
+            <td>${p.creationDate?.format('dd. MMMM yyyy')}</td>
         </tr>
     #{/list}
     #{postingItemDetails p /}

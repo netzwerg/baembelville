@@ -27,7 +27,11 @@ col.creator {
 }
 
 col.subject {
-    width: 80%;
+    width: 60%;
+}
+
+col.date {
+    width: 20%;
 }
 
 tr {

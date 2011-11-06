@@ -15,42 +15,37 @@ Posting(apples):
     category: OFFERED
     subject: Free Apples
     description:
-    creationDate: 26/10/2011
+    creationDate: 2011-11-05
     activated: true
-    token: fq2occqjgujogpnovoa3slg0kf
 
 Posting(beer):
     creator: bob
     category: OFFERED
     subject: Free Beer
-    description:
-    creationDate: 01/11/2011
+    description: Asdf asdf jklasfd jklasdf jklasdf
+    creationDate: 2011-09-05
     activated: true
-    token: fq2occqjgujxgpnovoa3slg0kf
 
 Posting(coffee):
     creator: jane
     category: OFFERED
     subject: Free Coffee
-    description:
-    creationDate: 03/11/2011
+    description: Asdf asdf jklasfd jklasdf jklasdf
+    creationDate: 2007-08-05
     activated: true
-    token: fq2occqjyujxgpnovoa3slg0kf
 
 Posting(oranges):
     creator: jane
     category: WANTED
     subject: Need Oranges
-    description:
-    creationDate: 26/10/2011
+    description: Asdf asdf jklasfd jklasdf jklasdf
+    creationDate: 2011-08-05
     activated: false
-    token: 3lj3nhjpbij748jtsvhjql505b
 
 Posting(partner):
     creator: john
     category: WANTED
     subject: Looking For Running Partner
-    description:
-    creationDate: 26/10/2011
+    description: Asdf asdf jklasfd jklasdf jklasdf
+    creationDate: 2001-08-05
     activated: true
-    token: 3lxxnhjpbij748jtsvhjql505b

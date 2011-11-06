@@ -8,7 +8,6 @@ import play.Logger;
 import play.mvc.Controller;
 
 import java.util.List;
-import java.util.UUID;
 
 public class Application extends Controller {
 
@@ -47,12 +46,12 @@ public class Application extends Controller {
         }
     }
 
-    public static void deletePosting(String token) {
+    public static void deletePosting(String id) {
         // TODO: Implement
     }
 
-    public static void activatePosting(String token) {
-		List<Object> postings = Posting.find("byToken", UUID.fromString(token)).fetch();
+    public static void activatePosting(String id) {
+		List<Object> postings = Posting.find("byId", id).fetch();
 		if (postings.size() == 1) {
 			Posting posting = (Posting) postings.get(0);
 			posting.activated = true;
